@@ -2,7 +2,9 @@ import React from 'react';
 
 function Home() {
   return(
-    <div class="w3-sidebar w3-bar-block" style={{width:'15%',backgroundColor:'#313639'}} id="sidebar">
+    <div>
+      <div id='navbar'/>
+      <div class="w3-sidebar w3-bar-block" style={{width:'15%',backgroundColor:'#313639'}} id="sidebar">
           <h5 style={{fontSize:'25px',fontWeight:'bold',paddingBottom:'10px'}}>Filters</h5>
           <h5>Price</h5>
           <div class="row">
@@ -56,13 +58,9 @@ function Home() {
           </div>
         </div>
       <div id="listings"style={{width:'85%',float:'right'}}>
-      <div class="row">
-        <div class="col"><img src="/imgs/logo1.png"/><a href="#">Listing 1</a></div>
-        <div class="col"><img src="/imgs/logo1.png"/><a href="#">Listing 1</a></div>
-        <div class="col"><img src="/imgs/logo1.png"/><a href="#">Listing 1</a></div>
-        <div class="col"><img src="/imgs/logo1.png"/><a href="#">Listing 1</a></div>
+        <div id='nftDisplay'/>
       </div>
-      </div>
+    </div>
   );
 }
 
