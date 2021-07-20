@@ -26,7 +26,7 @@ function Navbar() {
                       <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/gallery'>Gallery</Link></a>
                     </li>
                     <li class="nav-item">
-                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/profile'>Profile</Link></a>
+                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/profile'>My Profile</Link></a>
                     </li>
                     <li class="nav-item">
                       <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/signIn'>Sign In</Link></a>

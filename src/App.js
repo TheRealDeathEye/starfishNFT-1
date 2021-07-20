@@ -5,6 +5,7 @@ import Home from './home';
 import Gallery from './gallery';
 import Profile from './profile';
 import SignIn from './signIn';
+import SignUp from './signUp';
 import Navbar from './components/navbar';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route exact path='/gallery' component={Gallery} />
       <Route exact path='/profile' component={Profile} />
       <Route exact path='/signIn' component={SignIn} />
+      <Route exact path='/signUp' component={SignUp} />
     </div>
   );
 }

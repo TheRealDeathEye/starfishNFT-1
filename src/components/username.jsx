@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function Email(){
+export default function Username(){
   const [title, setTitle] = useState('');
 
   const handleOnChange = (e) => {
@@ -8,8 +8,8 @@ export default function Email(){
   }
   return (
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" onChange={handleOnChange} value={title}/>
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" onChange={handleOnChange} value={title}/>
     </div>
   );
 }

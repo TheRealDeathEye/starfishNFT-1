@@ -36,3 +36,7 @@ nav *{
 #navbarSupportedContent li{
   padding-left: 15px;
 }
+
+.form-group {
+  width:20%;
+}
