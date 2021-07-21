@@ -1,4 +1,4 @@
-import react, {createContext} from 'react';
+import React, {createContext} from 'react';
 import auth from '@react-@react-native-firebase/auth';
 import { async } from 'q';
 
