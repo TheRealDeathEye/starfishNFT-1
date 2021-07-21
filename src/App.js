@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from './util/firebase.js';
 import './css/App.css';
 import {Route, Link} from 'react-router-dom';
 import Home from './home';
