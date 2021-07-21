@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import firebase from './util/firebase.js';
-import auth from '@react-@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 import {AuthContext} from './util/AuthProvider';
 import './css/App.css';
 import {Route, Link} from 'react-router-dom';

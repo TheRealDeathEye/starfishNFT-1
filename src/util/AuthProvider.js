@@ -1,6 +1,5 @@
-import React, {createContext} from 'react';
-import auth from '@react-@react-native-firebase/auth';
-import { async } from 'q';
+import React, {createContext, useState} from 'react';
+import auth from '@react-native-firebase/auth';
 
 export const AuthContext = createContext();
 

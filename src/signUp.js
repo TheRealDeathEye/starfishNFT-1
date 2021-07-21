@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import Email from './components/email';
 import Username from './components/username';
 import {AuthContext} from './util/AuthProvider';
@@ -23,7 +23,7 @@ function SignUp() {
         <input type="text" class="form-control" id="password"/>
       </div>
       <br/>
-      <button type="button" class="btn"style={{background:'#313639',color:'#FFFAF1'} onClick="() => register(email, password)"}>Sign Up</button>
+      <button type="button" class="btn"style={{background:'#313639',color:'#FFFAF1'}} onClick="() => register(email, password)">Sign Up</button>
     </div>
   );
 }
