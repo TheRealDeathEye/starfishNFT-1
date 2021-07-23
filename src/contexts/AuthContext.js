@@ -15,15 +15,17 @@ export function AuthProvider({children}) {
   }
 
   useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setCurrentUser(user);
+    });
 
-  });
+    return unsubscribe;
+  }, []);
 
-  auth.onAuthStateChanged(user => {
-    setCurrentUser(user);
-  });
 
   const value = {
-    currentUser
+    currentUser,
+    signup
   }
 
   return (
