@@ -26,10 +26,10 @@ function Navbar() {
                       <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/gallery'>Gallery</Link></a>
                     </li>
                     <li class="nav-item">
-                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/profile'>My Profile</Link></a>
+                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/profile'>Profile</Link></a>
                     </li>
                     <li class="nav-item">
-                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/signIn'>Sign In</Link></a>
+                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/signUp'>Sign In</Link></a>
                     </li>
                 </ul>
                 <ul style={{marginRight: '10px'}} class="navbar-nav d-none d-lg-flex">

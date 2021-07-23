@@ -1,31 +1,37 @@
-import React, {useContext, useState} from 'react';
-import Email from './components/email';
-import Username from './components/username';
-import {AuthContext} from './util/AuthProvider';
+import React, {useRef} from 'react';
+import { Form,Button,Card,Container } from 'react-bootstrap';
 
-function SignUp() {
-  const [email,setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
-
-  const {register} = useContext(AuthContext);
-
+export default function SignUp() {
+  const {emailRef,passwordRef,passwordConfirmRef}=useRef();
   return(
-    <div align="center" style={{color:'white'}}>
-      <h1 style={{paddingTop:'150px',paddingBottom:'20px',textAlign:'center'}}>Sign Up</h1>
-      <button type="button" class="btn"><img style={{height:'50px',width:'50px'}} src="/imgs/google.png" alt=""/></button>
-      <button type="button" class="btn"><img style={{height:'50px',width:'50px'}} src="/imgs/facebook.webp" alt=""/></button>
-      <button type="button" class="btn"><img style={{height:'50px',width:'50px'}} src="/imgs/twitter.png" alt=""/></button>
-      <Email />
-      <Username />
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="text" class="form-control" id="password"/>
+    <div style={{paddingTop:'100px'}}>
+      <Container className='d-flex align-items-center justify-content-center' style={{minHeight:'100%'}}>
+      <div className='w-100' style={{maxWidth:'400px'}}>
+      <Card>
+        <Card.Body>
+          <h2 className='text-center mb-4'>Sign Up</h2>
+          <Form>
+            <Form.Group id='email'>
+              <Form.Label>Email</Form.Label>
+              <Form.Control type='email' ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id='password'>
+              <Form.Label>Password</Form.Label>
+              <Form.Control type='password' ref={passwordRef} required />
+            </Form.Group>
+            <Form.Group id='password-confirm'>
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control type='password' ref={passwordConfirmRef} required />
+            </Form.Group>
+            <Button className='w-100' type='submit'>Sign Up</Button>
+          </Form>
+        </Card.Body>
+      </Card>
+      <div className='w-100 text-center mt-2'>
+        Already have an account? Log In
       </div>
-      <br/>
-      <button type="button" class="btn"style={{background:'#313639',color:'#FFFAF1'}} onClick="() => register(email, password)">Sign Up</button>
+      </div>
+      </Container>
     </div>
   );
 }
-
-export default SignUp;

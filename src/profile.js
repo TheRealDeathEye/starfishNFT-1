@@ -6,7 +6,6 @@ function Profile() {
       <h1 style={{paddingTop:'125px',paddingBottom:'20px',textAlign:'center',color:'white'}}>My Profile</h1>
       <div class="col"align="right">
         <img style={{height:'200px',width:'200px',background:'#313639'}} type="button" class="btn" src="/imgs/white_logo.png" alt=""></img>
-        <h2>Starbitch</h2>
       </div>
       <div class="col"align="left">
         <div class="form-group"style={{width:'25%'}}>
