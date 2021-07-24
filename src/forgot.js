@@ -1,7 +1,6 @@
 import React, {useRef,useState} from 'react';
 import { Form,Button,Card,Container,Alert } from 'react-bootstrap';
 import {useAuth} from './contexts/AuthContext';
-import {Link} from 'react-router-dom';
 
 export default function Forgot() {
   const emailRef=useRef();
@@ -20,7 +19,7 @@ export default function Forgot() {
       await resetPassword(emailRef.current.value);
       setMessage('Password Reset Sent to Email');
     } catch {
-      setError('Failed to reset password')
+      setError('Email does not exist');
     }
     setLoading(false);
   }

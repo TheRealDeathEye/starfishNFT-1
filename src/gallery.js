@@ -8,11 +8,6 @@ function Gallery() {
         <div class="box" align="center" id="animation">
           <div class="box" align="center" id="portraits">
             <div class="row">
-              <div class="col"><img alt="" src="/imgs/logo1.png"/><a href="#">Listing 1</a></div>
-              <div class="col"><img alt="" src="/imgs/logo1.png"/><a href="#">Listing 1</a></div>
-              <div class="col"><img alt="" src="/imgs/logo1.png"/><a href="#">Listing 1</a></div>
-              <div class="col"><img alt="" src="/imgs/logo1.png"/><a href="#">Listing 1</a></div>
-              <div class="col"><img alt="" src="/imgs/logo1.png"/><a href="#">Listing 1</a></div>
             </div>
           </div>
         </div>

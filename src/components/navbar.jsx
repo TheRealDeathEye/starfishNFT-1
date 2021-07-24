@@ -3,17 +3,7 @@ import {Link} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';
 
 function Navbar() {
-  const [error,setError] = useState('');
   const {currentUser, logout} = useAuth();
-
-  async function handleLogout(){
-    setError('');
-    try{
-      await logout();
-    } catch{
-      setError('Failed to logout');
-    }
-  }
 
     return (
       <div>
@@ -36,13 +26,16 @@ function Navbar() {
                         <a class="nav-link active" href="https://charts.bogged.finance/?token=0x652Ebb7B1A44Db09258a2C386b3E46E6D9c2B2f1">Chart</a>
                     </li>
                     <li class="nav-item">
-                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/gallery'>Gallery</Link></a>
+                      <Link class= "nav-link active" style={{ textDecoration: 'none' }} to='/gallery'>Gallery</Link>
                     </li>
                     <li class="nav-item">
-                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/profile'>Profile</Link></a>
+                      <Link class= "nav-link active" style={{ textDecoration: 'none' }} to='/profile'>Profile</Link>
                     </li>
                     <li class="nav-item">
-                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/signIn'>Sign In</Link></a>
+                      <Link class= "nav-link active" style={{ textDecoration: 'none' }} to='/signIn'>Sign In</Link>
+                    </li>
+                    <li class="nav-item">
+                      <p class= "nav-link active" type='submit' style={{ textDecoration: 'none', visibility:'none' }}>Logout</p>
                     </li>
                 </ul>
                 <ul style={{marginRight: '10px'}} class="navbar-nav d-none d-lg-flex">

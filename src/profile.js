@@ -1,7 +1,6 @@
 import React, {useRef,useState} from 'react';
 import { Form,Button,Card,Container,Alert } from 'react-bootstrap';
 import {useAuth} from './contexts/AuthContext';
-import {Link} from 'react-router-dom';
 
 export default function Profile() {
   const emailRef=useRef();
@@ -19,9 +18,7 @@ export default function Profile() {
     }
 
     const promises = [];
-    setLoading(true);
-    setError('');
-    
+
     if (emailRef.current.value !== currentUser.email){
       promises.push(updateEmail(emailRef.current.value));
     }
@@ -29,15 +26,12 @@ export default function Profile() {
       promises.push(updatePassword(passwordRef.current.value));
     }
 
-    Promise.all(promises).then();
-
     try {
       setError('');
       setLoading(true);
-      //await login(emailRef.current.value,passwordRef.current.value);
-      history.push('/');
+      Promise.all(promises);
     } catch {
-      setError('Failed to sign in')
+      setError('Failed to update')
     }
     setLoading(false);
   }
