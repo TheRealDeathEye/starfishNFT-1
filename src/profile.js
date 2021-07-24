@@ -1,33 +1,74 @@
-import React from 'react';
+import React, {useRef,useState} from 'react';
+import { Form,Button,Card,Container,Alert } from 'react-bootstrap';
+import {useAuth} from './contexts/AuthContext';
+import {Link} from 'react-router-dom';
 
-function Profile() {
+export default function Profile() {
+  const emailRef=useRef();
+  const passwordRef=useRef();
+  const passwordConfirmRef=useRef();
+  const {currentUser, updateEmail, updatePassword} = useAuth();
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if(passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError('Passwords do not match');
+    }
+
+    const promises = [];
+    setLoading(true);
+    setError('');
+    
+    if (emailRef.current.value !== currentUser.email){
+      promises.push(updateEmail(emailRef.current.value));
+    }
+    if (passwordRef.current.value !== currentUser.password){
+      promises.push(updatePassword(passwordRef.current.value));
+    }
+
+    Promise.all(promises).then();
+
+    try {
+      setError('');
+      setLoading(true);
+      //await login(emailRef.current.value,passwordRef.current.value);
+      history.push('/');
+    } catch {
+      setError('Failed to sign in')
+    }
+    setLoading(false);
+  }
+
   return(
-    <div align="center" class="row">
-      <h1 style={{paddingTop:'125px',paddingBottom:'20px',textAlign:'center',color:'white'}}>My Profile</h1>
-      <div class="col"align="right">
-        <img style={{height:'200px',width:'200px',background:'#313639'}} type="button" class="btn" src="/imgs/white_logo.png" alt=""></img>
+    <div style={{paddingTop:'100px'}}>
+      <Container className='d-flex align-items-center justify-content-center' style={{minHeight:'100%'}}>
+      <div className='w-100' style={{maxWidth:'400px'}}>
+      <Card>
+        <Card.Body>
+          <h2 className='text-center mb-4'>Profile</h2>
+          {error && <Alert variant='danger'>{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group id='email'>
+              <Form.Label>Email</Form.Label>
+              <Form.Control type='email' ref={emailRef} required defaultValue={currentUser.email}/>
+            </Form.Group>
+            <Form.Group id='password'>
+              <Form.Label>Change Password</Form.Label>
+              <Form.Control type='password' ref={passwordRef} />
+            </Form.Group>
+            <Form.Group id='password'>
+              <Form.Label>Change Password Confirm</Form.Label>
+              <Form.Control type='password' ref={passwordConfirmRef} />
+            </Form.Group>
+            <Button disabled={loading} className='w-100 mt-2' type='submit'>Update Profile</Button>
+          </Form>
+        </Card.Body>
+      </Card>
       </div>
-      <div class="col"align="left">
-        <div class="form-group"style={{width:'25%'}}>
-          <input type="text" class="form-control" id="username" placeholder="New Username"/>
-        </div>
-        <br/>
-        <button type="button" class="btn"style={{background:'#313639',color:'#FFFAF1'}}>Change Username</button>
-        <br/><br/>
-        <div class="form-group"style={{width:'25%'}}>
-          <input type="text" class="form-control" id="oldPassword" placeholder="Old Password"/>
-        </div>
-        <div class="form-group"style={{width:'25%', paddingTop:'10px'}}>
-          <input type="text" class="form-control" id="newPassword" placeholder="New Password"/>
-        </div>
-        <div class="form-group"style={{width:'25%', paddingTop:'10px'}}>
-          <input type="text" class="form-control" id="confirmPassword" placeholder="Confirm New Password"/>
-        </div>
-        <br/>
-        <button type="button" class="btn" style={{background:'#313639',color:'#FFFAF1'}}>Change Password</button>
-      </div>
+      </Container>
     </div>
   );
 }
-
-export default Profile;

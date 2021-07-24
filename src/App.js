@@ -7,6 +7,7 @@ import Gallery from './gallery';
 import Profile from './profile';
 import SignIn from './signIn';
 import SignUp from './signUp';
+import Forgot from './forgot';
 import Navbar from './components/navbar';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route exact path='/profile' component={Profile} />
       <Route exact path='/signIn' component={SignIn} />
       <Route exact path='/signUp' component={SignUp} />
+      <Route exact path='/forgot' component={Forgot} />
     </AuthProvider>
     </div>
   );
