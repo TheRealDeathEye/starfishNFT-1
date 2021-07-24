@@ -1,7 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import {useAuth} from './contexts/AuthContext';
 
 function Navbar() {
+  const [error,setError] = useState('');
+  const {currentUser, logout} = useAuth();
+
+  async function handleLogout(){
+    setError('');
+    try{
+      await logout();
+    } catch{
+      setError('Failed to logout');
+    }
+  }
+
     return (
       <div>
         <header class="site-header fixed-top">
@@ -29,7 +42,7 @@ function Navbar() {
                       <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/profile'>Profile</Link></a>
                     </li>
                     <li class="nav-item">
-                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/signUp'>Sign In</Link></a>
+                      <a class= "nav-link active"><Link style={{ textDecoration: 'none' }} to='/signIn'>Sign In</Link></a>
                     </li>
                 </ul>
                 <ul style={{marginRight: '10px'}} class="navbar-nav d-none d-lg-flex">

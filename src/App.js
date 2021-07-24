@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/App.css';
 import {Route, Link} from 'react-router-dom';
-import {AuthProvider} from '.contexts/AuthContext';
+import {AuthProvider} from './contexts/AuthContext';
 import Home from './home';
 import Gallery from './gallery';
 import Profile from './profile';
