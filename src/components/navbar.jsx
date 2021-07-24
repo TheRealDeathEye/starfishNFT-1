@@ -1,9 +1,25 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';
 
 function Navbar() {
-  const {currentUser, logout} = useAuth();
+  const {logout} = useAuth();
+  const history = useHistory();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      history.push('/');
+      await logout();
+      document.getElementById('logoutToggle').style.display='none';
+      document.getElementById('galleryToggle').style.display='none';
+      document.getElementById('profileToggle').style.display='none';
+      document.getElementById('signInToggle').style.display='block';
+    } catch {
+      console.log('Failed to logout');
+    }
+  }
 
     return (
       <div>
@@ -25,17 +41,17 @@ function Navbar() {
                     <li class="nav-item">
                         <a class="nav-link active" href="https://charts.bogged.finance/?token=0x652Ebb7B1A44Db09258a2C386b3E46E6D9c2B2f1">Chart</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style={{display:'none'}} id='galleryToggle'>
                       <Link class= "nav-link active" style={{ textDecoration: 'none' }} to='/gallery'>Gallery</Link>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style={{display:'none'}} id='profileToggle'>
                       <Link class= "nav-link active" style={{ textDecoration: 'none' }} to='/profile'>Profile</Link>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id='signInToggle'>
                       <Link class= "nav-link active" style={{ textDecoration: 'none' }} to='/signIn'>Sign In</Link>
                     </li>
-                    <li class="nav-item">
-                      <p class= "nav-link active" type='submit' style={{ textDecoration: 'none', visibility:'none' }}>Logout</p>
+                    <li class="nav-item" style={{display:'none'}} id='logoutToggle'>
+                      <Link class= "nav-link active" onClick={handleSubmit} style={{ textDecoration: 'none'}} to='/'>Logout</Link>
                     </li>
                 </ul>
                 <ul style={{marginRight: '10px'}} class="navbar-nav d-none d-lg-flex">

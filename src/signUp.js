@@ -23,6 +23,10 @@ export default function SignUp() {
       setError('');
       setLoading(true);
       await signup(emailRef.current.value,passwordRef.current.value);
+      document.getElementById('logoutToggle').style.display='block';
+      document.getElementById('galleryToggle').style.display='block';
+      document.getElementById('profileToggle').style.display='block';
+      document.getElementById('signInToggle').style.display='none';
       history.push('/');
     } catch {
       setError('Failed to create an account')

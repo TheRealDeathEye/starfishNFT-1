@@ -11,3 +11,5 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
+
+document.body.style = 'background: #e6f4ff;';
