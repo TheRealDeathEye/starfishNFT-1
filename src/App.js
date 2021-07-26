@@ -9,6 +9,7 @@ import SignIn from './signIn';
 import SignUp from './signUp';
 import Forgot from './forgot';
 import NftView from './nftView';
+import NftCreate from './nftCreate';
 import Navbar from './components/navbar';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route exact path='/signUp' component={SignUp} />
       <Route exact path='/forgot' component={Forgot} />
       <Route exact path='/nftView' component={NftView} />
+      <Route exact path='/nftCreate' component={NftCreate} />
     </AuthProvider>
     </div>
   );

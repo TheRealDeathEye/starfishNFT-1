@@ -9,9 +9,15 @@ export default function NftView() {
       <Card>
         <Card.Body>
           <img src="imgs/white_logo.png" alt="" style={{height:'auto',width:'auto'}}/>
-          <h2 className='text-center mb-4'>Nft Name</h2>
-          <h5 className='text-center mb-4'>Nft Author</h5>
-          <h5 className='text-center mb-4'>Nft Description</h5>
+          <Form.Group id='nftTitle'>
+            <Form.Label>NFT Title</Form.Label>
+            <Form.Control type='text' ref={emailRef} required />
+          </Form.Group>
+          <Form.Group id='nftDescript'>
+            <Form.Label>NFT Description</Form.Label>
+            <Form.Control type='text' ref={passwordRef} required />
+          </Form.Group>
+          <Button disabled={loading} className='w-100 mt-2' type='submit'>Upload Nft</Button>
         </Card.Body>
       </Card>
       </div>
