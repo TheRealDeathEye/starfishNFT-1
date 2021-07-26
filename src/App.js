@@ -8,6 +8,7 @@ import Profile from './profile';
 import SignIn from './signIn';
 import SignUp from './signUp';
 import Forgot from './forgot';
+import NftView from './nftView';
 import Navbar from './components/navbar';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route exact path='/signIn' component={SignIn} />
       <Route exact path='/signUp' component={SignUp} />
       <Route exact path='/forgot' component={Forgot} />
+      <Route exact path='/nftView' component={NftView} />
     </AuthProvider>
     </div>
   );

@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
+import {Container} from 'react-bootstrap';
+import NftDesign from './nftDesign';
 
 class NftDisplay extends Component {
-  state = {};
+  state = {
+    nfts: ['tag1','tag2','tag3','tag4','tag5','tag6']
+  };
 
   render() {
     return (
-      <div class="row">
-        <div class="col"><img src="imgs/white_logo.png" alt=""/><a href="#">Listing 1</a></div>
-        <div class="col"><img src="imgs/white_logo.png" alt=""/><a href="#">Listing 1</a></div>
-        <div class="col"><img src="imgs/white_logo.png" alt=""/><a href="#">Listing 1</a></div>
-        <div class="col"><img src="imgs/white_logo.png" alt=""/><a href="#">Listing 1</a></div>
+      <Container>
+      <div className="row">
+        {this.state.nfts.map(nft => <NftDesign key={nft.id} />)}
       </div>
+      </Container>
     );
   }
 }

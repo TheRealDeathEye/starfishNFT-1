@@ -1,13 +1,12 @@
 import React from 'react';
-import Sidebar from './components/sidebar';
+import Filterbar from './components/filterbar';
+import NftDisplay from './components/nftDisplay';
 
 function Home() {
   return(
     <div>
-      <Sidebar />
-      <div id="listings"style={{width:'85%',float:'right'}}>
-        <div id='nftDisplay'/>
-      </div>
+      <Filterbar />
+      <NftDisplay />
     </div>
   );
 }
