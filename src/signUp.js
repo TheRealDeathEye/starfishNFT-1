@@ -5,9 +5,10 @@ import {Link,useHistory} from 'react-router-dom';
 
 export default function SignUp() {
   const emailRef=useRef();
+  const usernameRef=useRef();
   const passwordRef=useRef();
   const passwordConfirmRef=useRef();
-  const {signup} = useAuth();
+  const {signup, updateUserData, currentUser} = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -23,6 +24,9 @@ export default function SignUp() {
       setError('');
       setLoading(true);
       await signup(emailRef.current.value,passwordRef.current.value);
+      await updateUserData(usernameRef.current.value);
+      console.log(currentUser.displayName);
+      document.getElementById('usernameText').innerHTML=currentUser.displayName;
       document.getElementById('logoutToggle').style.display='block';
       document.getElementById('galleryToggle').style.display='block';
       document.getElementById('profileToggle').style.display='block';
@@ -46,6 +50,10 @@ export default function SignUp() {
             <Form.Group id='email'>
               <Form.Label>Email</Form.Label>
               <Form.Control type='email' ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id='username'>
+              <Form.Label>Username</Form.Label>
+              <Form.Control type='text' ref={usernameRef} required />
             </Form.Group>
             <Form.Group id='password'>
               <Form.Label>Password</Form.Label>

@@ -6,7 +6,7 @@ function Navbar() {
   const {logout} = useAuth();
   const history = useHistory();
 
-  async function handleSubmit(e) {
+  async function handleLogoutSubmit(e) {
     e.preventDefault();
 
     try {
@@ -51,10 +51,16 @@ function Navbar() {
                       <Link className= "nav-link active" style={{ textDecoration: 'none' }} to='/signIn'>Sign In</Link>
                     </li>
                     <li className="nav-item" style={{display:'none'}} id='logoutToggle'>
-                      <Link className= "nav-link active" onClick={handleSubmit} style={{ textDecoration: 'none'}} to='/'>Logout</Link>
+                      <Link className= "nav-link active" onClick={handleLogoutSubmit} style={{ textDecoration: 'none'}} to='/'>Logout</Link>
                     </li>
                 </ul>
                 <ul style={{marginRight: '10px'}} className="navbar-nav d-none d-lg-flex">
+                    <li className="nav-item">
+                        <p id='usernameText'>Username</p>
+                    </li>
+                    <li>
+                        <div style={{width:'10px'}}></div>
+                    </li>
                     <li className="nav-item">
                         <a href="https://t.me/starfishmarinelife"><img width="35" height="35" src="imgs/telegram.png" alt=""/></a>
                     </li>
